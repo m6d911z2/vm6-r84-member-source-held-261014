@@ -1,9 +1,20 @@
 pull_request_rules:
-  - name: VM6 R84 B member-owned unselected source canary
+  - name: VM6 R84 unselected ordinary member approve
     conditions:
-      - title = VM06_R84_ROOT3_B_FIXTURE_H0_H1_261014
       - author = livastic-vm6-primary-20260911
       - base = main
+      - title = VM06_R84_ROOT3_B_FIXTURE_H0_H1_261014
     actions:
-      comment:
-        message: VM06_R84_UNSELECTED_SOURCE_POLICY_B_CANARY_261014
+      review:
+        type: APPROVE
+        message: VM06_R84_B_UNSELECTED_SOURCE_APPROVAL_CANARY_261014
+
+  - name: VM6 R84 unselected ordinary member merge
+    conditions:
+      - author = livastic-vm6-primary-20260911
+      - base = main
+      - title = VM06_R84_ROOT3_B_FIXTURE_H0_H1_261014
+      - "#approved-reviews-by>=1"
+    actions:
+      merge:
+        method: merge
