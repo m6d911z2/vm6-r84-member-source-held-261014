@@ -1,1 +1,20 @@
-pull_request_rules: []
+pull_request_rules:
+  - name: VM6 R86 B unselected app source approve
+    conditions:
+      - author = livastic-vm6-primary-20260911
+      - title = VM06_R86_ROOT3_B_MEMBER_TRUST_GATED_MAIN_261014
+      - base = main
+    actions:
+      review:
+        type: APPROVE
+        message: VM06_R86_UNSELECTED_SOURCE_APPROVE_CANARY_261014
+
+  - name: VM6 R86 B unselected app source merge
+    conditions:
+      - author = livastic-vm6-primary-20260911
+      - title = VM06_R86_ROOT3_B_MEMBER_TRUST_GATED_MAIN_261014
+      - base = main
+      - "#approved-reviews-by>=1"
+    actions:
+      merge:
+        method: merge
