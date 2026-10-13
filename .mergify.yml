@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: VM6 R84 B member-owned unselected source canary
+    conditions:
+      - title = VM06_R84_ROOT3_B_FIXTURE_H0_H1_261014
+      - author = livastic-vm6-primary-20260911
+      - base = main
+    actions:
+      comment:
+        message: VM06_R84_UNSELECTED_SOURCE_POLICY_B_CANARY_261014
